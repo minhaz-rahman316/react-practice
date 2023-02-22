@@ -16,12 +16,15 @@ export default class Slider extends Component {
             <Image
               style={{ width: "100%", height: "300px" }}
               src={image}
-              alt={`Slide ${i}`}
               fluid
             />
           </Carousel.Item>
         );
       });
-    return <div>{sliderImages}</div>;
+    return (
+      <Carousel>
+        {sliderImages}
+      </Carousel>
+    );
   }
 }

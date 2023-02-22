@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
-import  {Row,Col,Card,Carousel} from 'react-bootstrap'
+import  {Row,Col,Card} from 'react-bootstrap'
 import Slider from './Slider';
 
 export default class HomeBanner2 extends Component {
@@ -39,7 +39,7 @@ export default class HomeBanner2 extends Component {
       return (
         <Col key={i} lg={3}>
           <Card style={{ width: "18rem", height: "100%" }}>
-            <Carousel><Slider images={item.images } /></Carousel>
+           <Slider images={item.images}/>
             <Card.Body style={{ height: "40%" }} className="mb-3 d-flex-col">
               <Card.Title>{item.title}</Card.Title>
               <Card.Text>

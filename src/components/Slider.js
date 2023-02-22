@@ -1,56 +1,27 @@
 import React, { Component } from "react";
-import Slider from "react-slick";
-
-export default class Responsive extends Component {
-    constructor(props) { 
-        super(props);
-        
-    }
-  render() {
-    var settings = {
-      dots: true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      initialSlide: 0,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
+import { Carousel, Image } from "react-bootstrap";
+export default class Slider extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: props.images,
     };
-    return (
-      <div>
-        <h2> Responsive </h2>
-        <Slider {...settings}>
-          <div>
-            <img src='' alt="" />
-          </div>
-        
-        </Slider>
-      </div>
-    );
+  }
+  render() {
+    const sliderImages =
+      this.state.images &&
+      this.state.images.map((image, i) => {
+        return (
+          <Carousel.Item key={i}>
+            <Image
+              style={{ width: "100%", height: "300px" }}
+              src={image}
+              alt={`Slide ${i}`}
+              fluid
+            />
+          </Carousel.Item>
+        );
+      });
+    return <div>{sliderImages}</div>;
   }
 }
